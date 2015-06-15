@@ -1,0 +1,10 @@
+str(kaggle)
+summary(kaggle)
+cor(kaggle[sapply(kaggle, is.numeric)])
+
+cor_mat <- cor(kaggle[sapply(kaggle, is.numeric)])
+cor_mat
+
+cor(kaggle$VehYear, kaggle$IsBadBuy)
+cor(kaggle$VehicleAge, kaggle$IsBadBuy)
+cor(kaggle$WheelTypeID, kaggle$IsBadBuy)
