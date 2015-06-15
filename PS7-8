@@ -1,0 +1,85 @@
+tab <- read.csv('msleep_ggplot2.csv')
+class(tab)
+head(tab)
+dim(tab)
+View(tab)
+colnames(tab)
+tab$sleep_total
+c(tab$sleep_total, 1000)
+plot(tab$brainwt, tab$sleep_total)
+plot(tab$brainwt, tab$sleep_total, log="x")
+summary(tab$sleep_total)
+greater <- tab[tab$sleep_total > 18, ]
+mean(greater$sleep_total)
+
+tab$sleep_total[ which(tab$sleep_total > 18 & tab$sleep_rem < 3)]
+
+which(tab$sleep_total > 18 & tab$sleep_rem < 3)
+
+order(tab$sleep_total)
+tab$sleep_total[ order(tab$sleep_total) ]
+rank(c(1,2,2,3))
+rank(tab$sleep_total)
+match()
+
+idx = match(c("Cow","Owl monkey","Cotton rat"), tab$name)
+idx
+
+tab[idx,]
+
+vec = c("red","blue","red","green","green","yellow","orange")
+fac = factor(vec)
+fac
+levels(fac)
+
+vec == "blue"
+
+fac2 = factor(vec, levels=c("blue","green","yellow","orange","red"))
+fac2
+levels(fac2)
+
+
+fac2 = factor(levels = c("Rodents"))
+fac2
+levels(fac2)
+
+fac3 = factor(levels = tab$order)
+fac3
+levels(fac3)
+table(levels(fac3))
+
+
+s = split(tab$sleep_total, tab$order)
+s
+s[["Rodentia"]]
+mean(s[["Rodentia"]])
+
+lapply(s, mean)
+sapply(s, mean)
+sapply(s, sd)
+
+dat <- read.csv("femaleMiceWeights.csv")
+mean(dat[13:24,2]) - mean(dat[1:12,2])
+
+s = split(dat[,2], dat[,1])
+stripchart(s, vertical=TRUE, col=1:2)
+abline(h=sapply(s, mean), col=1:2)
+mean(dat[1:12, 2])
+count(dat[13:24,2] < mean(dat[1:12, 2])
+View(dat)
+
+mean(dat[13:24,2])
+dat[1:12, 2]
+
+highfat = s[["hf"]]
+highfat
+sample(highfat, 6)
+?sample
+sample(highfat, 6, replace=TRUE)
+
+mean(highfat > 30)
+
+population = read.csv("femaleControlsPopulation.csv")
+population = population[,1]
+
+mean(population)
